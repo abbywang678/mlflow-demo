@@ -7,7 +7,8 @@ By serving a model you have the ability to interact with the model over an HTTP 
 Start the local server so that you can try this out. Try to use the default port (5000) and address (127.0.0.1) so that everything matches. Take note of the uri, making sure it is exactly the same as what you will use later. For example:
 
 ```
-mlflow server --backend-store-uri sqlite:///mlflow.db --default-artifact-root /tmp/ --host 127.0.0.1:5000
+ls mlruns/0/
+mlflow models serve -m runs://xxxxxxxx/model -p 5001
 ```
 
 
@@ -16,7 +17,7 @@ mlflow server --backend-store-uri sqlite:///mlflow.db --default-artifact-root /t
 See the `log_model.py` file to programmatically retrieve a T5 model with HuggingFace Transformers and then register it into the UI. Then run inferece using the `curl` command on the `/invocations` API endpoint:
 
 ```
-curl -X POST -H "Content-Type:application/json; format=pandas-split" --data '{"columns":["text"],"data":[["Today is a perfect day to practice automation skills"]]}' http://127.0.0.1:5000/invocations
+curl -X POST -H "Content-Type:application/json; format=pandas-split" --data '{"columns":["text"],"data":[["Today is a perfect day to practice automation skills"]]}' http://127.0.0.1:5001/invocations
 ```
 
 

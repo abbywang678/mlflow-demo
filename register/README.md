@@ -7,6 +7,13 @@ The basis of model versioning is a [Model Registry](https://mlflow.org/docs/late
 
 You *must* use `log_model` to register a new model. It isn't possible to add a model without having that done.
 
+## Start the model server for MLflow
+
+Start the local server so that you can try this out. Try to use the default port (5000) and address (127.0.0.1) so that everything matches. Take note of the uri, making sure it is exactly the same as what you will use later. For example:
+
+```
+mlflow server --backend-store-uri sqlite:///mlflow.db --default-artifact-root /tmp/ --host 127.0.0.1 --port 5000
+```
 
 ### Use an existing model to register it
 

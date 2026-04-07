@@ -72,3 +72,21 @@ Since you added the `pip` installs directly to the file, you didn't really insta
 ```
 
 The command will look into any new (or different) dependencies and install them. The `--prune` flag will remove anything that is no longer defined in the _conda_env.yml_ file. In this case, you didn't remove anything, but it is still a good idea to keep using it.
+
+
+
+python -m venv .venv
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+.\.venv\Scripts\activate
+pip install mlflow
+mlflow --version
+pip install "urllib3<2.0"
+mlflow ui  -> localhost:5000 / mlflow server --backend-store-uri sqlite:///mlflow.db --default-artifact-root /tmp/ --host 127.0.0.1 --port 5000
+https://github.com/mlflow/mlflow-example/blob/master/train.py
+https://github.com/alfredodeza/mlflow-example/blob/master/train.py
+mlflow run git@github.com:alfredodeza/mlflow-example.git -P alpha=5
+https://github.com/alfredodeza/mlflow-demo/
+ls mlruns/0/
+mlflow models serve -m runs://127.0.0.1/model -p 5001
+
+access 127.0.0.1:5001 can open the model
